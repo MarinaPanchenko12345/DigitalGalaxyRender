@@ -14,6 +14,8 @@ const AuthSuccess = () => {
     const params = new URLSearchParams(window.location.search);
     const token = params.get("token");
 
+  console.log("AuthSuccess: Received token:", token);
+
     if (token) {
       dispatch(login(token));
       localStorage.setItem("token", token);

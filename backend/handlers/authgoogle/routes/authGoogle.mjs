@@ -34,8 +34,21 @@ router.get(
   (req, res) => {
     const token = req.user.token; // Received token
     console.log("Generated JWT token:", token);
+    const frontendUrl =
+      process.env.FRONTEND_URL || "https://digitalgalaxyrender-1.onrender.com"; // ✅ Фолбэк
+    console.log("======= Google Auth Callback =======");
+    console.log("Generated JWT token:", token || "No token generated");
+    console.log("Frontend URL:", frontendUrl);
+    console.log(
+      "Redirecting to:",
+      `${frontendUrl}/auth-success?token=${token}`
+    );
 
-    res.redirect(`${process.env.FRONTEND_URL}/auth-success?token=${token}`);
+    if (!token) {
+      return res.status(400).json({ error: "Token not generated" });
+    }
+
+    res.redirect(`${frontendUrl}/auth-success?token=${token}`);
   }
 );
 
