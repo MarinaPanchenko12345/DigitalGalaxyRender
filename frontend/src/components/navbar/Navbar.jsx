@@ -57,7 +57,7 @@ export default function Navbar() {
   const handleLogout = async () => {
     try {
       const response = await fetch(
-        "/api/logout",
+        "https://digitalgalaxyrender.onrender.com/api/logout",
         {
           method: "POST",
           credentials: "include",

@@ -69,7 +69,7 @@ const SingUp = () => {
     if (validate(formData)) {
       try {
         const response = await axios.post(
-          "/api/auth",
+          "https://digitalgalaxyrender.onrender.com/api/auth",
           formData
         );
         if (response.status === 201) {

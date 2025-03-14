@@ -43,7 +43,7 @@ const CreateNewPassword = () => {
     }
     try {
       await axios.post(
-        `/api/auth/create-new-password/${token}`,
+        `https://digitalgalaxyrender.onrender.com/api/auth/create-new-password/${token}`,
         { password }
       );
       showAlert("success", "Password has been reset successfully.");

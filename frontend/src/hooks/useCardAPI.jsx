@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import axios from "axios";
 
-const cardURL = "/api/cards";
+const cardURL = "https://digitalgalaxyrender.onrender.com/api/cards";
 
 const useCardAPI = () => {
   const [error, setError] = useState("");

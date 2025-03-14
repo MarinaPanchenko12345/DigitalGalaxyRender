@@ -22,7 +22,7 @@ const ProductCardGallery = () => {
 
   useEffect(() => {
     axios
-      .get("/api/cards")
+      .get("https://digitalgalaxyrender.onrender.com/api/cards")
       .then((response) => {
         const filteredCards = response.data
           .filter((card) => card.likes.length > 5)

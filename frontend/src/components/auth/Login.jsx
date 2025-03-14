@@ -54,7 +54,7 @@ const Login = () => {
     }
     try {
       const response = await axios.post(
-        "/api/auth/login",
+        "https://digitalgalaxyrender.onrender.com/api/auth/login",
         formData
       );
       const token = await response.data;
@@ -84,7 +84,8 @@ const Login = () => {
   };
 
   const loginWithGoogle = () => {
-    window.location.href = "/api/auth/google";
+    window.location.href =
+      "https://digitalgalaxyrender.onrender.com/api/auth/google";
   };
 
   const toggleVisibility = () => {

@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import axios from "axios";
 
-const userURL = "/api/users";
+const userURL = "https://digitalgalaxyrender.onrender.com/api/users";
 
 const useUserAPI = () => {
   const [error, setError] = useState("");
