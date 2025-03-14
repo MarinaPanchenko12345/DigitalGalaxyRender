@@ -5,7 +5,6 @@ export default defineConfig({
   plugins: [react()],
   base: "/",
   server: {
-    port: 5174,
     proxy: {
       "/api": {
         target: "https://digitalgalaxyrender.onrender.com",
