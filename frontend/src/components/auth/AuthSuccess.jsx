@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../slices/TokenSlice";
 import { showAlert } from "../../helpers/Alert";
-import { useUser } from '../../contexts/UserContext';
+import { useUser } from "../../contexts/UserContext";
 
 const AuthSuccess = () => {
   const dispatch = useDispatch();
@@ -13,8 +13,6 @@ const AuthSuccess = () => {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const token = params.get("token");
-
-  console.log("AuthSuccess: Received token:", token);
 
     if (token) {
       dispatch(login(token));
@@ -30,7 +28,6 @@ const AuthSuccess = () => {
     // Fetch logged-in user's details after login.
     if (isLoggedIn) fetchLoggedUser();
   }, [isLoggedIn, fetchLoggedUser]);
-
 
   return (
     <div className='message message_empty'>Processing Google Login...</div>
