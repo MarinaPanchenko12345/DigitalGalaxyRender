@@ -9,6 +9,7 @@ import {
 import { createUserObject } from "../model/userModel.mjs";
 import { generateResetToken } from "./tokenService.mjs";
 import { sendEmail } from "./emailService.mjs";
+import { FRONTEND_URL } from '../../../helpers/config.mjs';
 
 //Service for Login
 export const userLogin = async (email, password, res) => {
@@ -45,7 +46,7 @@ export const resetPassword = async (email, redirectUri = null, req = null) => {
   // Generate token for reset password
   const resetToken = generateResetToken(user);
 
-  const resetLink = `${process.env.FRONTEND_URL}/create-new-password/${resetToken}`;
+  const resetLink = `${FRONTEND_URL}/create-new-password/${resetToken}`;
   // Send email to user
   await sendEmail({
     to: email,

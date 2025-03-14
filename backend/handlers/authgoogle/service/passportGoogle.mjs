@@ -5,6 +5,7 @@ import { generateToken } from "../../auth/service/tokenService.mjs";
 
 import chalk from "chalk";
 import { User } from "../../auth/model/userMongoose.mjs";
+import { BACKEND_URL } from '../../../helpers/config.mjs';
 
 dotenv.config();
 

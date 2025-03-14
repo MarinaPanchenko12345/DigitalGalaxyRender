@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 
 dotenv.config();
-
+export const DB_URL = process.env.ATLAS_DB_URL;
 //Connects to the MongoDB database.
 //Depending on the NODE_ENV environment variable, it connects to either a local MongoDB Compass or MongoDB Atlas.
 export const connectDB = async () => {
