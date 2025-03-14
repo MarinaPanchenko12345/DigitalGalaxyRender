@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import Home from "./components/pages/Home";
 import About from "./components/pages/about/About";
 import SignUp from "./components/auth/SignUp";
@@ -35,7 +36,7 @@ const Routers = ({ location }) => {
           element={<CreateNewPassword />}
         />
         <Route path='/user-cards' element={<UserCards />} />
-        <Route path='/deleted-cards' element={<DeletedCards/>} />
+        <Route path='/deleted-cards' element={<DeletedCards />} />
         <Route path='/favorite' element={<Favorite />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/orders' element={<Orders />} />
@@ -46,6 +47,7 @@ const Routers = ({ location }) => {
         <Route path='/cards/:id' element={<ViewProductCard />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/overview' element={<Overview />} />
+        <Route path='*' element={<Navigate to='/' />} />
       </Routes>
     </div>
   );
