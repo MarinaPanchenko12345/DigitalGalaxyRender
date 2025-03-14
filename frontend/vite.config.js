@@ -6,6 +6,7 @@ export default defineConfig({
   base: "/",
   build: {
     outDir: "dist",
+    copyPublicDir: true, // Гарантирует копирование public/
   },
   server: {
     historyApiFallback: true,
