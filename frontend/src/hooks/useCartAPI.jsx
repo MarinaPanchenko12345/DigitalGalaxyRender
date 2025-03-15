@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import axios from "axios";
 
-const cartURL = "https://digitalgalaxyrender.onrender.com/api/cart";
+const cartURL = "https://digitalgalaxyrender.onrender.com/cart";
 
 const useCartAPI = () => {
   const [error, setError] = useState("");

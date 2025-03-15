@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import axios from "axios";
 
-const orderURL = "https://digitalgalaxyrender.onrender.com/api/order";
+const orderURL = "https://digitalgalaxyrender.onrender.com/order";
 
 const useOrderAPI = () => {
   const [error, setError] = useState("");

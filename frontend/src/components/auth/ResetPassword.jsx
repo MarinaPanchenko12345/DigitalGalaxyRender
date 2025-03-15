@@ -29,7 +29,7 @@ const ResetPassword = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "https://digitalgalaxyrender.onrender.com/api/auth/reset-password",
+        "https://digitalgalaxyrender.onrender.com/auth/reset-password",
         {
           email,
         }
