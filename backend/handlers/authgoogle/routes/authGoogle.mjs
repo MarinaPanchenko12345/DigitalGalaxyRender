@@ -29,12 +29,8 @@ router.get(
   "/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/auth/failure" }),
   (req, res) => {
-    const token = req.user?.token || null;// Received token
-    if (!FRONTEND_URL) {
-      return res
-        .status(500)
-        .send("FRONTEND_URL is missing. Check environment variables.");
-    }
+    const token = req.user.token; // Received token
+    console.log("Generated JWT token:", token);
     res.redirect(`${FRONTEND_URL}/auth-success?token=${token}`);
   }
 );
