@@ -22,7 +22,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             <SearchProvider>
               <UserProvider>
                 <SortProvider>
-                  <BrowserRouter basename='/'>
+                  <BrowserRouter>
                     <App />
                   </BrowserRouter>
                 </SortProvider>
@@ -34,4 +34,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </CardProvider>
   </Provider>
 );
-
