@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "postbuild": "node copy-redirects.js"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
