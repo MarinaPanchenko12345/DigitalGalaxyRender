@@ -11,10 +11,8 @@ const AuthSuccess = () => {
   const { fetchLoggedUser, isLoggedIn } = useUser();
 
   useEffect(() => {
-     console.log("✅ `AuthSuccess` Component Loaded!");
     const params = new URLSearchParams(window.location.search);
     const token = params.get("token");
-     console.log("🔑 Token from URL:", token);
 
     if (token) {
       dispatch(login(token));
