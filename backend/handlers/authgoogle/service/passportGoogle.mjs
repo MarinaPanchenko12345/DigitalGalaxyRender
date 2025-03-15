@@ -1,19 +1,15 @@
 import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
-import dotenv from "dotenv";
 import { generateToken } from "../../auth/service/tokenService.mjs";
-
-import chalk from "chalk";
 import { User } from "../../auth/model/userMongoose.mjs";
-import { BACKEND_URL } from '../../../helpers/config.mjs';
-
-dotenv.config();
+import { BACKEND_URL, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } from '../../../helpers/config.mjs';
+import chalk from "chalk";
 
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientID: GOOGLE_CLIENT_ID,
+      clientSecret: GOOGLE_CLIENT_SECRET,
       callbackURL: `${BACKEND_URL}/auth/google/callback`,
       passReqToCallback: true,
     },

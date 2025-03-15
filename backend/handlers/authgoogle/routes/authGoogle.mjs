@@ -1,18 +1,13 @@
 import express from "express";
 import passport from "passport";
-
 import "../service/passportGoogle.mjs";
 import { FRONTEND_URL } from '../../../helpers/config.mjs';
+import sessionMiddleware from '../../../middlewares/sessionMiddleware.mjs';
 
 const router = express.Router();
-router.use((req, res, next) => {
-  console.log("Session data:", req.session);
-  next();
-});
-
-
 
 // Initialize Passport and sessions
+router.use(sessionMiddleware);
 router.use(passport.initialize());
 router.use(passport.session());
 

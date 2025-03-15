@@ -1,7 +1,6 @@
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
+import { JWT_SECRET } from '../../../helpers/config.mjs';
 
-dotenv.config();
 //Generates a JWT token for the given user.
 export const generateToken = (user) => {
   const token = jwt.sign(
@@ -10,8 +9,8 @@ export const generateToken = (user) => {
       isBusiness: user.isBusiness,
       isAdmin: user.isAdmin,
     },
-    process.env.JWT_SECRET,
-    { expiresIn: "4m" } // Token expiration time (4 hour)
+    JWT_SECRET,
+    { expiresIn: "4h" } // Token expiration time (4 hour)
   );
   return token;
 };
@@ -20,7 +19,7 @@ export const generateToken = (user) => {
 export const generateResetToken = (user) => {
   const resetToken = jwt.sign(
     { _id: user._id },
-    process.env.JWT_SECRET,
+    JWT_SECRET,
     { expiresIn: "15m" } 
   );
   return resetToken;

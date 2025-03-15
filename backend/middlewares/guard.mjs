@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import { handleError } from "../utils/handleErrors.mjs";
+import { JWT_SECRET } from '../helpers/config.mjs';
 
 //Middleware to check if the user is authenticated.
 //It verifies the JWT token provided in the Authorization header and adds the user object to the request if the token is valid.
@@ -8,7 +9,7 @@ export const guard = (req, res, next) => {
   if (!authorization) {
     return handleError(res, 401, "Authentication Error: Unauthorized user");
   }
-  jwt.verify(authorization, process.env.JWT_SECRET, (err, user) => {
+  jwt.verify(authorization, JWT_SECRET, (err, user) => {
     if (err) {
       return handleError(res, 401, "Invalid token.");
     } else {
@@ -54,7 +55,7 @@ export const getUser = (req) => {
   if (!req.headers.authorization) {
     return null;
   }
-  const user = jwt.decode(req.headers.authorization, process.env.JWT_SECRET);
+  const user = jwt.decode(req.headers.authorization, JWT_SECRET);
   if (!user) {
     return null;
   }

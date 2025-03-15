@@ -9,7 +9,7 @@ import {
 import { createUserObject } from "../model/userModel.mjs";
 import { generateResetToken } from "./tokenService.mjs";
 import { sendEmail } from "./emailService.mjs";
-import { FRONTEND_URL } from '../../../helpers/config.mjs';
+import { FRONTEND_URL, JWT_SECRET } from '../../../helpers/config.mjs';
 
 //Service for Login
 export const userLogin = async (email, password, res) => {
@@ -58,7 +58,7 @@ export const resetPassword = async (email, redirectUri = null, req = null) => {
 
 //Service for create new password
 export const createNewPassword = async (token, password) => {
-  const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  const decoded = jwt.verify(token,JWT_SECRET);
   const user = await User.findById(decoded._id);
   if (!user) {
     throw {

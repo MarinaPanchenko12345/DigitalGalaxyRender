@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { EMAIL_PASSWORD, EMAIL_USER } from '../../../helpers/config.mjs';
 
 // Setting up Transporter for gmail
 const transporter = nodemailer.createTransport({
@@ -7,8 +8,8 @@ const transporter = nodemailer.createTransport({
   port: 465,
   secure: false, 
   auth: {
-    user: process.env.EMAIL_USER, 
-    pass: process.env.EMAIL_PASSWORD, 
+    user: EMAIL_USER, 
+    pass: EMAIL_PASSWORD, 
   },
   
 });
@@ -16,7 +17,7 @@ const transporter = nodemailer.createTransport({
 // Function for sending email
 export const sendEmail = async ({ to, subject, text }) => {
   const mailOptions = {
-    from: process.env.EMAIL_USER,
+    from: EMAIL_USER,
     to,
     subject,
     text,
