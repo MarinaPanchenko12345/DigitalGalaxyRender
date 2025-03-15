@@ -2,6 +2,7 @@ import express from "express";
 import passport from "passport";
 import session from "express-session";
 import "../service/passportGoogle.mjs";
+import { FRONTEND_URL } from '../../../helpers/config.mjs';
 
 const router = express.Router();
 
@@ -35,7 +36,7 @@ router.get(
     const token = req.user.token; // Received token
     console.log("Generated JWT token:", token);
 
-    res.redirect(`${process.env.FRONTEND_URL}/auth-success?token=${token}`);
+    res.redirect(`${FRONTEND_URL}/auth-success?token=${token}`);
   }
 );
 
