@@ -1,5 +1,7 @@
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 
+dotenv.config();
 //Generates a JWT token for the given user.
 export const generateToken = (user) => {
   const token = jwt.sign(
@@ -9,7 +11,7 @@ export const generateToken = (user) => {
       isAdmin: user.isAdmin,
     },
     process.env.JWT_SECRET,
-    { expiresIn: "4h" } // Token expiration time (4 hour)
+    { expiresIn: "4m" } // Token expiration time (4 hour)
   );
   return token;
 };
