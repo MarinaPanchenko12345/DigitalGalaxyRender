@@ -6,9 +6,16 @@ export default defineConfig({
   base: "/",
   build: {
     outDir: "dist",
-    copyPublicDir: true, 
+    copyPublicDir: true,
   },
   server: {
     historyApiFallback: true,
+  },
+  resolve: {
+    fallback: {
+      fs: false,
+      path: false,
+      os: false,
+    },
   },
 });
