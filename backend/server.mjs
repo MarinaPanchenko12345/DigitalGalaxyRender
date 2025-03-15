@@ -9,6 +9,7 @@ import chalk from "chalk";
 import router from "./routes/router.mjs";
 import { initializeData } from "./initial-data/initial-data.service.mjs";
 import { handleError404 } from "./utils/htmlError404.mjs";
+import sessionMiddleware from './middlewares/sessionMiddleware.mjs';
 
 dotenv.config();
 
@@ -21,9 +22,13 @@ app.use(express.static("public"));
 app.use(loggerConsole);
 app.use(loggerRequest);
 app.use(corsMiddleware);
+app.use(sessionMiddleware);
 app.use(router);
 
 initializeData();
+router.get("/", (req, res) => {
+  res.status(200).send("Server is running!");
+});
 handleError404(app);
 
 app.use((err, req, res, next) => {

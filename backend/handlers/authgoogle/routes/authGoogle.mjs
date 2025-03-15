@@ -1,20 +1,16 @@
 import express from "express";
 import passport from "passport";
-import session from "express-session";
+
 import "../service/passportGoogle.mjs";
 import { FRONTEND_URL } from '../../../helpers/config.mjs';
 
 const router = express.Router();
+router.use((req, res, next) => {
+  console.log("Session data:", req.session);
+  next();
+});
 
-// Session setup
-router.use(
-  session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: { secure: false },
-  })
-);
+
 
 // Initialize Passport and sessions
 router.use(passport.initialize());
