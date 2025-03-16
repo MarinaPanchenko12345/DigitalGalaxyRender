@@ -29,6 +29,10 @@ app.use((err, req, res, next) => {
   handleError(res, 500, err.message);
 });
 
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, "0.0.0.0", () => {
   console.log(chalk.blue.bold(`Server is running on port ${PORT}`));
