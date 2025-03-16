@@ -2,7 +2,7 @@ import express from "express";
 import passport from "passport";
 import "../service/passportGoogle.mjs";
 import dotenv from "dotenv";
-
+import {sessionMiddleware} from "../../../middlewares/sessionMiddleware.mjs"
 dotenv.config();
 
 const router = express.Router();
