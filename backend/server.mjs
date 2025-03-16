@@ -20,6 +20,13 @@ app.use(loggerConsole);
 app.use(loggerRequest);
 app.use(corsMiddleware);
 
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
+app.head("/", (req, res) => {
+  res.sendStatus(200);
+});
+
 app.use(router);
 
 initializeData();
@@ -27,13 +34,6 @@ handleError404(app);
 
 app.use((err, req, res, next) => {
   handleError(res, 500, err.message);
-});
-
-app.get("/", (req, res) => {
-  res.send("Server is running!");
-});
-app.head("/", (req, res) => {
-  res.sendStatus(200);
 });
 
 const PORT = process.env.PORT || 3000;
